@@ -5,8 +5,14 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <div>
-        <DashboardHeader/>
+                
+
+       <div className='fixed md:w-64 hidden md:block'>
         <SideNav/>
+        </div>
+        <div className='md:ml-64 '>
+            <DashboardHeader/>
+        </div>
 
       
     </div>

@@ -44,7 +44,7 @@ const SideNav = () => {
 
     
   return (
-    <div className='h-screen p-2 border shadow-sm'>
+    <div className='h-screen p-2 rounded-lg shadow-sm'>
         <img src="/expenses.png" alt="Expenses logo" width={50  } height={15}  />
             <span className='font-bold font-sans '>Expense Tracker</span>
             <div className='mt-5'>
