@@ -3,7 +3,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
+import { UserButton, useUser } from '@clerk/clerk-react';
 import { SignIn } from '@clerk/clerk-react';
 
 
@@ -32,14 +32,23 @@ const Header = () => {
      
 
 
-    
-  
+    {/* <div className=' w-20 h-20'> */}
+  {isSignedIn?(
+    <UserButton    appearance={{
+    elements: {
+                             // outer container
+      avatarBox: "w-full h-full",                               // avatar itself
+    },
+  }}
+  />
+  ):(
      <Button className=" hover:bg-black hover:border-black hover:text-white" onClick={handleGetStarted} variant="outline">Get Started</Button>
      
-
+)}
+</div>
      
 
-    </div>
+    // </div>
   )
 }
 

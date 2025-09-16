@@ -1,7 +1,22 @@
 
 import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { UserButton, useUser } from '@clerk/clerk-react';
+import { SignIn } from '@clerk/clerk-react';
 
 export const Hero = () => {
+     const{user,isSignedIn}=useUser();
+  const navigate=useNavigate();
+  const handleGetStarted=async()=>{
+    if(isSignedIn){
+     navigate('/dashboard')
+
+    }
+    else{
+      navigate('/sign-in')
+    }
+    
+  }
  
 
   
@@ -19,7 +34,7 @@ export const Hero = () => {
               Your all-in-one companion to track, analyze, and grow your money
             </p>
             <div className="mt-4 flex justify-center gap-4 sm:mt-6">
-              <button
+              <button onClick={handleGetStarted}
               
                 className="inline-block rounded border border-indigo-500 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-black hover:border-black"
               >
