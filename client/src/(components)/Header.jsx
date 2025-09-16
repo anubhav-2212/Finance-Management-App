@@ -2,25 +2,25 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
+import { SignIn } from '@clerk/clerk-react';
 
 
 
 const Header = () => {
-  
+  const{user,isSignedIn}=useUser();
+  const navigate=useNavigate();
+  const handleGetStarted=async()=>{
+    if(isSignedIn){
+     navigate('/dashboard')
 
-    // const handleGetStartedButton=()=>{
-    //   if(isSignedIn){
-    //     router.push("/dashboard")
-    //   }
-    //   else
-    //   router.push("/sign-in")
-    // }
-
-    const handleGetStartedButton = () => {
-  console.log("Button clicked, isSignedIn:", isSignedIn);
-  if (isSignedIn) router.push("/dashboard");
-  else router.push("/sign-in");
-};
+    }
+    else{
+      navigate('/sign-in')
+    }
+    
+  }
 
   return (
     <div className='p-2.5 flex items-center justify-between  shadow-sm mb-10' >
@@ -28,9 +28,13 @@ const Header = () => {
      <img src="/expenses.png" alt="Expenses logo" width={50  } height={15}  />
      <span className='font-bold font-sans '>Expense Tracker</span>
      </div>
+      
+     
+
+
     
-        
-     <Button onClick={handleGetStartedButton} variant="outline">Get Started</Button>
+  
+     <Button className=" hover:bg-black hover:border-black hover:text-white" onClick={handleGetStarted} variant="outline">Get Started</Button>
      
 
      
