@@ -3,14 +3,16 @@ import React  from 'react'
 // import Image from 'next/image'
 // import { LayoutGrid,PiggyBank,ReceiptText,ShieldCheck } from 'lucide-react'
 import { UserButton } from '@clerk/clerk-react'
-import { useLocation } from 'react-router'
+import { Link, useLocation } from 'react-router-dom'
 import { LayoutGrid, PiggyBank, ReceiptText, ShieldCheck } from 'lucide-react';
+
 
 
 
 
 const SideNav = () => {
     const{pathName}=useLocation();
+    // console.log(pathName)
 
     const menuList=[
        { id:1,
@@ -51,22 +53,24 @@ const SideNav = () => {
 
                 {menuList.map((menu,index)=>(
                    
-                    <h2  key={index} className={`flex gap-2 items-center text-gray-600 font-medium
+                    <Link to={menu.path}  key={index} className={`flex gap-2 items-center text-gray-600 font-medium
                     p-5 cursor-pointer rounded-md
                     hover:text-primary hover:bg-blue-100
                     
-                    ${pathName===menu.path && 'bg-blue-100 text-primary'}`}>
+                    ${pathName==menu.path && 'bg-blue-100 text-primary'}`}>
                         <menu.icon/>
-                        {menu.name}</h2>
+                        {menu.name}
+                    </Link>
                 ))}
             </div>
             <div className='fixed bottom-5 p-3 flex gap-3 items-center '>
                 <UserButton/>
                 Profile
             </div>
-            
+          
       
     </div>
+ 
   )
 }
 

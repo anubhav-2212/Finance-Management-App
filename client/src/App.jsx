@@ -5,6 +5,9 @@ import LandingPage from './routes/LandingPage'
 // import{SignIn} from '@clerk/clerk-react'
 import SignInPage from './routes/SignIn'
 import Dashboard from './routes/Dashboard'
+import Budgets from './routes/Budgets.jsx'
+import Expenses from './routes/Expenses'
+import Upgrade from './routes/Upgrade'
 // import Dashboard from './routes/Dashboard';
 
 
@@ -17,6 +20,9 @@ const App = () => {
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/sign-in' element={<SignInPage/>}/>
        <Route path='/dashboard' element={<Dashboard/>}/>
+       <Route path='/dashboard/budgets' element={<Budgets/>}/>
+       <Route path='/dashboard/expenses' element={<Expenses/>}/>
+       <Route path='/dashboard/upgrade' element={<Upgrade/>}/>
        
       </Routes>
        
