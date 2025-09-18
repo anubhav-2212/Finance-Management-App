@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 dotenv.config()
 import cors from "cors"
 import db from "./utils/db.js"
+import incomeRoutes from "./routes/income.routes.js"
 
 
 const PORT=process.env.PORT||3000
@@ -19,6 +20,8 @@ app.use(cors({
 
 }))
 db();
+
+app.use('/api/v1/income',incomeRoutes)
 
 
 app.listen(PORT,()=>{
