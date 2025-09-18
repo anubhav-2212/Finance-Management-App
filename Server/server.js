@@ -1,6 +1,9 @@
 import express from "express"
 import dotenv from "dotenv"
 dotenv.config()
+import cors from "cors"
+import db from "./utils/db.js"
+
 
 const PORT=process.env.PORT||3000
 const app=express();
@@ -15,6 +18,7 @@ app.use(cors({
   exposedHeaders: ["Content-Length", "X-Custom-Header"],
 
 }))
+db();
 
 
 app.listen(PORT,()=>{
